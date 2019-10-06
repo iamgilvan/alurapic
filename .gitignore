@@ -4,7 +4,8 @@
 /dist
 /tmp
 /out-tsc
-
+/vendor
+/app/logs
 # dependencies
 /node_modules
 
@@ -18,6 +19,7 @@
 *.sublime-workspace
 
 # IDE - VSCode
+/.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -27,13 +29,17 @@
 # misc
 /.sass-cache
 /connect.lock
-/coverage
+/coverage/*
 /libpeerconnection.log
 npm-debug.log
-yarn-error.log
 testem.log
 /typings
 
-# System Files
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+#System Files
 .DS_Store
 Thumbs.db
+!.gitkeep
