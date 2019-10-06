@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { PhotosComponent } from './photos/photos.module';
-import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -12,8 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    PhotosComponent,
-    HttpClientModule
+    PhotosComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
