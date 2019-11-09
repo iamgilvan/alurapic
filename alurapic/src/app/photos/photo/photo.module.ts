@@ -5,10 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [PhotoComponent],
-    imports: 
-    [ 
+    imports: [
         CommonModule,
         HttpClientModule
-    ]
+    ],
+    exports: [ PhotoComponent ]
 })
 export class PhotoModule { }
