@@ -8,6 +8,8 @@
 /app/logs
 # dependencies
 /node_modules
+api/node_modules
+alurapic/node_modules
 
 # IDEs and editors
 /.idea

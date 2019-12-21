@@ -2,7 +2,7 @@
 
 <form [formGroup]="signupForm" class="form mt-4" (submit)="signup()">
   <div class="form-group">
-    <input formControlName="email" class="form-control" placeholder="email" autofocus>
+    <input #emailInput formControlName="email" class="form-control" placeholder="email" autofocus>
     <ap-vmessage *ngIf="signupForm.get('email').errors?.required" text="Email is required!">
     </ap-vmessage>
     <ap-vmessage *ngIf="signupForm.get('email').errors?.email" text="Invalid e-mail">
@@ -46,5 +46,5 @@
 
   <button [disabled]="signupForm.invalid || signupForm.pending" class="btn btn-primary btn-block">Register</button>
 
-  <p>Already a user? <a [routerLink]="['']">Sign In!</a></p>
+  <p>User? <a [routerLink]="['']">Sign In</a></p>
 </form>

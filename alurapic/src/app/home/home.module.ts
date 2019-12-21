@@ -1,3 +1,4 @@
+import { HomeComponent } from './home.component';
 import { SignUpComponent } from './signup/signup.component';
 import { NgModule } from '@angular/core';
 import { SignInComponent } from './signin/signin.component';
@@ -10,7 +11,8 @@ import { RouterModule } from '@angular/router';
     declarations: 
     [
         SignInComponent,
-        SignUpComponent
+        SignUpComponent,
+        HomeComponent
     ],
     imports: [ 
         CommonModule,
