@@ -1,3 +1,4 @@
+import { HomeRoutingModule } from './home.routing.module';
 import { HomeComponent } from './home.component';
 import { SignUpComponent } from './signup/signup.component';
 import { NgModule } from '@angular/core';
@@ -19,7 +20,8 @@ import { RouterModule } from '@angular/router';
         ReactiveFormsModule,
         FormsModule,
         VmessageModule,
-        RouterModule
+        RouterModule,
+        HomeRoutingModule
      ]
 
 })
