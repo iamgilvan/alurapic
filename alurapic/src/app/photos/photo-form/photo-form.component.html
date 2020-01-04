@@ -1,9 +1,21 @@
-<div class="container">
+<form class="container">
   <form [formGroup]="photoForm" class="row" (submit)="upload()">
     <div class="col-md-6 text-center">
-      <input formControlName="file" type="file" accept="image/*" (change)="file = $event.target.files[0]">
-      <ap-vmessage text="Please, select a photo" *ngIf="photoForm.get('file').errors?.required">
-      </ap-vmessage>
+      <div class="form-group" *ngIf="!preview; else previewImage">
+        <button type="button" (click)="fileInput.click()" class="btn btn-primary">
+          <i class="fa fa-image fa-4x align-middle"></i>
+        </button>
+        <input #fileInput hidden formControlName="file" type="file" accept="image/*"
+          (change)="handleFile(file = $event.target.files[0])">
+        <ap-vmessage text="Please, select a photo" *ngIf="photoForm.get('file').errors?.required">
+        </ap-vmessage>
+      </div>
+      <ng-template #previewImage>
+        <div class="text-center">
+          <ap-photo [url]="preview" title="Preview">
+          </ap-photo>
+        </div>
+      </ng-template>
     </div>
 
     <div class="col-md-6">
@@ -24,8 +36,7 @@
       <button [disabled]="photoForm.invalid" type="submit" class="btn btn-primary btn-block">
         Upload
       </button>
-
       <a class="btn btn-secondary btn-block">Cancel</a>
     </div>
   </form>
-</div>
+</form>
