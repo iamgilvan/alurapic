@@ -7,18 +7,17 @@ const CLOUD = 'http://localhost:3000/imgs/';
     templateUrl: 'photo.component.html'
 })
 export class PhotoComponent {
-
+    
     private _url = '';
 
     @Input() description='';
-
-    @Input() set url(url: string) {
+    
+    @Input() set url(url: string)  {
         if(!url.startsWith('data')) {
             this._url = CLOUD + url;
         } else {
             this._url = url;
         }
-
     }
 
     get url() {

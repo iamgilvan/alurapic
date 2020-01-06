@@ -1,4 +1,3 @@
-import { SignUpComponent } from './home/signup/signup.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -15,12 +14,13 @@ const routes: Routes = [
         pathMatch: 'full',
         redirectTo: 'home'
     },
-    {
+    { 
         path: 'home',
         loadChildren: './home/home.module#HomeModule'
-    },
+    },              
     { 
         path: 'user/:userName', 
+        pathMatch: 'full',
         component: PhotoListComponent,
         resolve: {
             photos: PhotoListResolver
@@ -31,10 +31,10 @@ const routes: Routes = [
         component: PhotoFormComponent,
         canActivate: [AuthGuard]
     },
-    {
-        path: 'p/:photoId',
+    { 
+        path: 'p/:photoId', 
         component: PhotoDetailsComponent,
-    },
+    },    
     { 
         path: '**', 
         component: NotFoundComponent 
@@ -43,7 +43,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [ 
-        RouterModule.forRoot(routes,  { useHash: true }) 
+        RouterModule.forRoot(routes, { useHash: true } ) 
     ],
     exports: [ RouterModule ]
 })

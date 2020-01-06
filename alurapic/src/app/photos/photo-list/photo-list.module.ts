@@ -1,4 +1,3 @@
-import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -10,6 +9,7 @@ import { PhotoModule } from '../photo/photo.module';
 import { CardModule } from '../../shared/components/card/card.module';
 import { SearchComponent } from './search/search.component';
 import { DarkenOnHoverModule } from '../../shared/directives/darken-on-hover/darken-on-hover.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
