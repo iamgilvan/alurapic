@@ -5,6 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 import { PhotoService } from '../../photo/photo.service';
 import { PhotoComment } from '../../photo/photo-comment';
 import { Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-photo-comments',
@@ -14,13 +17,19 @@ import { Input } from '@angular/core';
 export class PhotoCommentsComponent implements OnInit {
 
   @Input() photoId: number;
+  commentForm: FormGroup;
 
   comments$: Observable<PhotoComment[]>;
 
-  constructor(private photoService: PhotoService) {}
+  constructor(
+    private photoService: PhotoService,
+    private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
 
       this.comments$ = this.photoService.getComments(this.photoId);
+      this.commentForm = this.formBuilder.group({
+        comment: ['', Validators.maxLength(300)]
+    });
   }
 }
