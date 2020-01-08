@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 })
 export class AlertService {
 
-    alertSubject: Subject<Alert>;
+    alertSubject: Subject<Alert> = new Subject<Alert>();
     
     private alert(alertType: AlertType, message: string) {
 
