@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -7,7 +8,7 @@ import { map } from 'rxjs/internal/operators/map';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { throwError, of } from 'rxjs';
 
-const API = 'http://localhost:3000';
+const API = environment.apiUrl;
 
 @Injectable({ providedIn: 'root' })
 export class PhotoService {
@@ -70,4 +71,5 @@ export class PhotoService {
         .pipe(catchError(err => {
             return err.status == '304' ? of(false) : throwError(err);
         }));
+    }
 }
