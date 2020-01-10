@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -24,20 +25,32 @@ const routes: Routes = [
         component: PhotoListComponent,
         resolve: {
             photos: PhotoListResolver
+        },
+        data: { 
+            title: 'Timeline'
         }
     },
     { 
         path: 'p/add', 
         component: PhotoFormComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
+        data: { 
+            title: 'Photo upload'
+        },
     },
     { 
         path: 'p/:photoId', 
         component: PhotoDetailsComponent,
+        data : {
+            title: 'photo detail'
+        }
     }, 
     { 
         path: 'not-found', 
-        component: NotFoundComponent 
+        component: NotFoundComponent,
+        data : {
+            title: 'Not found'
+        }
     },     
     { 
         path: '**', 
