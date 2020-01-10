@@ -1,3 +1,4 @@
+import { ShowIfLoggedModule } from './../../shared/directives/show-if-logged/show-if-logged.module';
 import { NgModule } from "@angular/core";
 import { PhotoDetailsComponent } from "./photo-details.component";
 import { CommonModule } from "@angular/common";
@@ -23,7 +24,8 @@ import { PhotoOwnerOnlyDirective } from "./photo-owner-only/photo-owner-only.dir
         PhotoModule,
         RouterModule,
         ReactiveFormsModule,
-        VMessageModule
+        VMessageModule,
+        ShowIfLoggedModule
     ]
 })
 export class PhotoDetailsModule { }
