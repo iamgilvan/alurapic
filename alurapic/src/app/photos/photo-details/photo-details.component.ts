@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Observable } from "rxjs";
+import { switchMap, first } from 'rxjs/operators';
 
 import { PhotoService } from "../photo/photo.service";
 import { Photo } from "../photo/photo";
@@ -49,11 +50,11 @@ export class PhotoDetailsComponent implements OnInit {
 
     like(photo: Photo) {
         this.photoService
-        .like(photo.id)
-        .subscribe(liked => {
-            if(liked) {
-                this.photo$ = this.photoService.findById(photo.id);
-            }
-        });
+            .like(photo.id)
+            .subscribe(liked => {
+                if(liked) {
+                    this.photo$ = this.photoService.findById(photo.id);
+                }
+            });
     }
 }

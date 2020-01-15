@@ -1,14 +1,14 @@
-import { environment } from './../../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Photo } from "./photo";
 import { PhotoComment } from './photo-comment';
-import { map } from 'rxjs/internal/operators/map';
-import { catchError } from 'rxjs/internal/operators/catchError';
-import { throwError, of } from 'rxjs';
 
-const API = environment.apiUrl;
+import { environment } from '../../../environments/environment';
+import { map, catchError } from 'rxjs/operators';
+import { of, throwError } from 'rxjs';
+
+const API = environment.ApiUrl;
 
 @Injectable({ providedIn: 'root' })
 export class PhotoService {
@@ -29,7 +29,7 @@ export class PhotoService {
     } 
     
     upload(description: string, allowComments: boolean, file: File) {
-
+        
         const formData = new FormData();
         formData.append('description', description);
         formData.append('allowComments', allowComments ? 'true' : 'false');
@@ -38,7 +38,7 @@ export class PhotoService {
         return this.http.post(
             API + '/photos/upload', 
             formData,
-            {
+            { 
                 observe: 'events',
                 reportProgress: true
             }
@@ -72,7 +72,7 @@ export class PhotoService {
     like(photoId: number) {
 
         return this.http.post(
-            API + '/photos/' + photoId +  '/like', {}, {observe: 'response'}
+            API + '/photos/' + photoId + '/like', {}, { observe: 'response'}
         )
         .pipe(map(res => true))
         .pipe(catchError(err => {

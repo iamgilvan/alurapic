@@ -17,8 +17,7 @@ export class SignInComponent implements OnInit {
         private formBuilder: FormBuilder,
         private authService: AuthService,
         private router: Router,
-        private platformDetectorService: PlatformDetectorService
-        ) { }
+        private platformDetectorService: PlatformDetectorService) { }
 
     ngOnInit(): void {
         this.loginForm = this.formBuilder.group({
