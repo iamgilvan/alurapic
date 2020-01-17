@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { NewUser } from './new-user';
 import { environment } from '../../../environments/environment';
 
-const API_URL = environment.apiUrl;
+const API_URL = environment.ApiUrl;
 
 @Injectable()
 export class SignUpService {
