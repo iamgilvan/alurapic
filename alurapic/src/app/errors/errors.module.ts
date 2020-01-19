@@ -1,8 +1,8 @@
-import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ErrorHandler } from '@angular/core';
 import { GlobalErrorHandler } from './global-error-handler/global-error-handler';
 import { GlobalErrorComponent } from './global-error/global-error.component';
 
@@ -11,11 +11,14 @@ import { GlobalErrorComponent } from './global-error/global-error.component';
     CommonModule,
     RouterModule
   ],
-  declarations: [NotFoundComponent,GlobalErrorComponent],
+  declarations: [
+    NotFoundComponent,
+    GlobalErrorComponent
+  ],
   providers: [
     {
-    provide: ErrorHandler,
-    useClass: GlobalErrorHandler
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandler
     }
   ]
 })
