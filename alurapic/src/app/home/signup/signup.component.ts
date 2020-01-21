@@ -65,5 +65,6 @@ export class SignUpComponent implements OnInit {
             .subscribe(
                 () => this.router.navigate(['']),
                 err => console.log(err)
-    )};
+            )};
+    }
 }
